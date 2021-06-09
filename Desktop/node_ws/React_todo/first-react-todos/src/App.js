@@ -7,6 +7,10 @@ import {Todos} from "./myComponents/Todos";
 import {Footer} from "./myComponents/Footer";
 
 function App() {
+  
+  const onDelete = (todo) =>{
+    console.log("I am on Delete of ", todo);
+  }
 
   let todos = [
     {
@@ -29,7 +33,7 @@ function App() {
   return (
     <>
       <Header title= "My Todos List" searchBar={true}/>
-      <Todos todos={todos}/>
+      <Todos todos={todos} onDelete={onDelete}/>
       <Footer/>
     </>
   );

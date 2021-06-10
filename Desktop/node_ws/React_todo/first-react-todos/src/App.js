@@ -3,6 +3,7 @@
 import './App.css';
 
 import Header from "./myComponents/Header";
+import { AddTodo } from "./myComponents/AddTodo";
 import {Todos} from "./myComponents/Todos";
 import {Footer} from "./myComponents/Footer";
 
@@ -40,6 +41,7 @@ function App() {
   return (
     <>
       <Header title= "My Todos List" searchBar={true}/>
+      <AddTodo/>
       <Todos todos={todos} onDelete={onDelete}/>
       <Footer/>
     </>

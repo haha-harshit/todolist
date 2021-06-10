@@ -6,7 +6,7 @@ export const Todos = (props) => {
     return (
         <>
         <div className = "container">
-            <h3 className="text-center my-4">Todo's List</h3>
+            <h3 className="my-4">Todo's List</h3>
             {/* {props.todos} */}
 
             {props.todos.length===0? "No Todos to Display!" : 

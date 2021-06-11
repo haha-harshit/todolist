@@ -5,7 +5,7 @@ import {TodoItem} from "./TodoItem";
 export const Todos = (props) => {
 
     let myStyle = {
-        minHeight: "70vh",
+        minHeight: "100vh",
         margin: "auto 5%",
         width: "auto"
     }
@@ -20,7 +20,7 @@ export const Todos = (props) => {
             props.todos.map( (todoo) => {
                 return (
                     <>
-                        <TodoItem todo={todoo} key={todoo.sno} onDelete={props.onDelete}/> <hr/>
+                        <TodoItem todo={todoo} key={todoo.sno} onDelete={props.onDelete}/> <br/> <hr />
                     </>
                     )
             })}

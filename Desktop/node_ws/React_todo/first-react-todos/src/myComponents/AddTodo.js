@@ -15,7 +15,10 @@ export const AddTodo = ({addTodo}) => {
     let myStyle = {
         // minHeight: "70vh",
         margin: "auto 5%",
-        width: "auto"
+        width: "auto",
+        paddingTop: "20px",
+        paddingBottom: "20px"
+
     }
 
     return (

@@ -2,7 +2,10 @@ import React from 'react'
 
 export const TodoItem = ({todo, onDelete}) => {
 
-    
+    let myStyle = {
+        // minHeight: "70vh",
+        // display: "inline"
+    }
 
     return (
         <>

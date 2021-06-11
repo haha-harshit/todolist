@@ -24,7 +24,14 @@ function App() {
   // todo add function
   const addTodo = (title, desc)=>{
     console.log("I am adding this todo", title, desc);
-    let sno = todos[todos.length-1].sno + 1;
+
+    let sno;
+    if(todos.length===0){
+      sno = 1;
+    }else{
+      sno = todos[todos.length-1].sno + 1;
+    }
+
     const myTodo = {
       sno: sno, 
       title: title,
@@ -34,23 +41,7 @@ function App() {
     console.log(myTodo);
   }
 
-  const [todos, setTodos] = useState([
-    {
-      sno: 1,
-      title: "Market",
-      desc: "Buy vegetables"
-    },
-    {
-      sno: 2,
-      title: "University",
-      desc: "Submit Assignment"
-    },
-    {
-      sno: 3,
-      title: "Home",
-      desc: "Clean the house"
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   return (
     <>

@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 
 function App() {
   
+  //todo delete function
   const onDelete = (todo) =>{
     console.log("I am on Delete of ", todo);
 
@@ -18,6 +19,19 @@ function App() {
       return e!==todo;
     }));
 
+  }
+
+  // todo add function
+  const addTodo = (title, desc)=>{
+    console.log("I am adding this todo", title, desc);
+    let sno = todos[todos.length-1].sno + 1;
+    const myTodo = {
+      sno: sno, 
+      title: title,
+      desc: desc
+    }
+    setTodos([...todos, myTodo]);
+    console.log(myTodo);
   }
 
   const [todos, setTodos] = useState([
@@ -41,7 +55,7 @@ function App() {
   return (
     <>
       <Header title= "My Todos List" searchBar={true}/>
-      <AddTodo/>
+      <AddTodo addTodo={addTodo}/>
       <Todos todos={todos} onDelete={onDelete}/>
       <Footer/>
     </>

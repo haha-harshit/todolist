@@ -8,8 +8,13 @@ export const AddTodo = ({addTodo}) => {
         e.preventDefault();
         if(!title || !desc){
             alert("Title/Description cannot be blank!");
+            setTitle("");
+            setDesc("");
+        }else{
+            addTodo(title, desc);
+            setTitle("");
+            setDesc("");
         }
-        addTodo(title, desc)
     }
 
     let myStyle = {

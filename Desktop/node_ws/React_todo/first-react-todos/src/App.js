@@ -6,8 +6,18 @@ import Header from "./myComponents/Header";
 import { AddTodo } from "./myComponents/AddTodo";
 import {Todos} from "./myComponents/Todos";
 import {Footer} from "./myComponents/Footer";
+import { About } from "./myComponents/About";
 
+// importing react, useState and useEffect
 import React, { useState, useEffect } from 'react';
+
+// importing REACT-ROUTER-DOM
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   let initTodo;
@@ -60,10 +70,30 @@ function App() {
 
   return (
     <>
+    <Router>
       <Header title= "My Todos List" searchBar={true}/>
-      <AddTodo addTodo={addTodo}/>
-      <Todos todos={todos} onDelete={onDelete}/>
+      
+      <Switch>
+          {/* route for main page */}
+          <Route exact path="/" render = {() => {
+            return(
+              <>
+                <AddTodo addTodo={addTodo}/>
+                <Todos todos={todos} onDelete={onDelete}/>
+              </>
+            )
+          }}>
+          </Route>
+
+          {/* route for ABOUT page */}
+          <Route exact path="/about">
+            <About />
+          </Route>
+
+      </Switch>
+      
       <Footer/>
+    </Router>
     </>
   );
 }

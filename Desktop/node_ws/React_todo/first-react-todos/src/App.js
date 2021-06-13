@@ -7,10 +7,17 @@ import { AddTodo } from "./myComponents/AddTodo";
 import {Todos} from "./myComponents/Todos";
 import {Footer} from "./myComponents/Footer";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  
+  let initTodo;
+  if (localStorage.getItem("todos") === null) {
+    initTodo = [];
+  }
+  else {
+    initTodo = JSON.parse(localStorage.getItem("todos"));
+  }
+
   //todo delete function
   const onDelete = (todo) =>{
     console.log("I am on Delete of ", todo);
@@ -18,6 +25,9 @@ function App() {
     setTodos(todos.filter((e)=>{
       return e!==todo;
     }));
+
+    // localStorage.setItem("todos", JSON.stringify(todos)); 
+    localStorage.setItem("todos", JSON.stringify(todos));
 
   }
 
@@ -41,7 +51,12 @@ function App() {
     console.log(myTodo);
   }
 
-  const [todos, setTodos] = useState([]);
+
+  const [todos, setTodos] = useState(initTodo);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos])
 
   return (
     <>
